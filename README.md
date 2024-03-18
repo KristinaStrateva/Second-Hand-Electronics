@@ -13,10 +13,8 @@ Welcome to Second Hand Electronics, a server-side rendering platform built with 
 - [Features](#features)
 - [Project Structure](#project-structure)
 - [Usage](#usage)
-- [Screenshots](#screenshots)
 - [API Endpoints](#api-endpoints)
 - [Room for Improvements](#room-for-improvements)
-- [Acknowledgement](#acknowledgement)
 - [Contacts](#contacts)
 
 ## General Information
