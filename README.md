@@ -4,7 +4,7 @@ Welcome to Second Hand Electronics, a server-side rendering platform built with 
 
 ## Technologies Used
 
-[![Static Badge](https://img.shields.io/badge/JavaScript-FAFA1A)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)   [![Static Badge](https://img.shields.io/badge/Express.js-v4.18.2-1CAC42)](https://expressjs.com/)   [![Static Badge](https://img.shields.io/badge/Express-Handlebars-v7.1.2-1CAC42)](https://expressjs.com/)   [![Static Badge](https://img.shields.io/badge/MongoDB-338649)](https://www.mongodb.com/)   [![Static Badge](https://img.shields.io/badge/License-MIT-2EA74C)](https://opensource.org/license/mit/)
+[![Static Badge](https://img.shields.io/badge/JavaScript-FAFA1A)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)   [![Static Badge](https://img.shields.io/badge/Express.js-v4.18.2-1CAC42)](https://expressjs.com/)   [![Static Badge](https://img.shields.io/badge/Express-Handlebars-v7.1.2-1CAC42)](https://www.npmjs.com/package/express-handlebars)   [![Static Badge](https://img.shields.io/badge/MongoDB-338649)](https://www.mongodb.com/)   [![Static Badge](https://img.shields.io/badge/License-MIT-2EA74C)](https://opensource.org/license/mit/)
 
 ## Table of Contents
 
