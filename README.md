@@ -1,6 +1,6 @@
 # Second Hand Electronics
 
-Welcome to Second Hand Electronics, an immersive platform that celebrates the art of pyrography. Our application is a curated gallery where pyrography enthusiasts can explore and appreciate the beauty of meticulously crafted items.
+Welcome to Second Hand Electronics, a server-side rendering platform built with Express.js, Handlebars and MongoDB. It is designed for electronics components — both new and second-hand.
 
 ## Technologies Used
 
@@ -21,40 +21,48 @@ Welcome to Second Hand Electronics, an immersive platform that celebrates the ar
 
 ## General Information
 
-- Pyrography ART Gallery creates a dedicated online space for pyrography enthusiasts to showcase their creations, fostering a vibrant and supportive community.
+- The platform facilitates the trading of electronics components, catering to both sellers and buyers.
 
-- By organizing items into collections and providing a dynamic home page, Pyrography ART Gallery serves as a centralized platform where users can easily explore and discover a variety of pyrography pieces.
+- It utilizes Express.js for server-side logic, Handlebars for templating, and MongoDB for database management. 
 
-- The purpose of Pyrography ART Gallery is to cultivate a thriving community, celebrate artistic talent, facilitate learning, encourage personal expression, overcome existing limitations, and provide a unique online experience for individuals passionate about the art of pyrography.
+- Authentication tracking is implemented using middleware to differentiate between registered users and guests.
+
+- Key functionalities include uploading, editing, and deleting items, as well as browsing and purchasing capabilities for users (purchasing functionality is only simulated).
 
 ## Live Demo
 
-Check out the live demo of Pyrography ART Gallery [here](https://pyrography-art-gallery.onrender.com/).
+Check out the live demo of Second Hand Electronics [here](https://second-hand-electronics.onrender.com/).
 
 **Note:** The website is optimized for the latest versions of Chrome and Mozilla Firefox, with a desktop resolution of 1920x1080.
 
 ## Features
 
-- **Collections:** Explore three distinct collections - Home Decorations, Gift Sets, and Custom Items. Each collection embodies the passion and creativity of pyrography, offering a unique visual journey.
+- **Electronic and User Models:** The platform employs two main models—Electronic and User. Each Electronic item includes attributes such as name, type, damages, image, description, production, exploitation and price. User authentication and tracking are managed through the User model.
 
-- **User Creations:** For logged-in users, Pyrography ART Gallery opens the door to artistic expression. Create, edit, and delete your items, shaping them with the warmth of your creativity. Each item tells a story, and you have the power to craft your narrative.
+- **User Creations:** For logged-in users, Second Hand Electronics gives additional privileges such as uploading, editing or deleting their own items.
 
-- **Dynamic Home Page:** The home page dynamically showcases the last three added items, creating an ever-evolving visual experience. Witness the latest additions and be inspired by the diversity of pyrography.
+- **Dynamic Catalog Page:** The catalog page dynamically showcases all added electronics.
 
-- **Authentication Tracking:** A custom hook ensures seamless authentication for users, tracking login, register, and logout activities across various routes. Feel the connection with the community as you navigate through Pyrography ART Gallery.
+- **Authentication Tracking:** Middleware is utilized for tracking user authentication status, enabling different functionalities based on whether a user is logged in or is a guest.
 
-- **Like Functionality:** Express your appreciation for fellow artists with the like functionality. Each like is a virtual nod of approval, creating a sense of camaraderie within the Pyrography ART Gallery community.
+- **Search Functionality:** The platform incorporates a robust search feature allowing users to search for items based on specific criteria, enhancing the browsing experience and facilitating item discovery.
 
 ## Project Structure
 
-This repository hosts the source code for our immersive platform dedicated to the art of pyrography. Below is an overview of the project structure.
+The project follows a modular architecture with a main src directory comprising various components:
 
-- `/client`: The client-side application built with React and Vite
-    - `/public`: Contains static assets, including images
-    - `/src`: Holds the React components, styles, and other client-side code
-
-- `/server`: The server-side code for handling backend logic and API requests, using Express.js and MongoDB
-    - `/src`: Holds the controllers, models, configuration, routes and other server-side code
+- `/src`
+    - `/config`: Contains configuration files for Express.js and MongoDB configuration, setting up environment variables and other project configurations
+    - `/controllers`: Houses controller functions responsible for handling user requests, interacting with the models, and sending responses
+    - `/lib`: Holds custom jwt library
+    - `/managers`: Includes manager modules responsible for business logic and coordination between different parts of the application
+    - `/middlewares`: Contains middleware functions for implementing authentication, error handling, and other cross-cutting concerns
+    - `/models`: Stores database models representing different entities in the application, such as users and electronic items
+    - `/public`: Contains static assets such as images, stylesheets, and client-side JavaScript files
+    - `/utils`: Houses utility functions used throughout the application for various purposes such as data manipulation and formatting
+    - `/views`: Stores Handlebars templates for rendering HTML views served to clients
+    - `index.js`: Entry point of the application, initializing the server and middleware
+    - `router.js`: Handles routing logic for different endpoints and their associated functionalities
 
 Feel free to explore each directory to understand how different components and functionalities are structured within the project.
 
@@ -62,13 +70,9 @@ Feel free to explore each directory to understand how different components and f
 
 **1. Clone the Repository**
 
-`git clone https://github.com/KristinaStrateva/Pyrography-Art-Gallery.git`
+`git clone https://github.com/KristinaStrateva/Second-Hand-Electronics`
 
 **2. Start the Server**
-
-Open a new terminal window in the root directory of the project and navigate to the server:
-
-`cd server`
 
 Install server dependencies:
 
@@ -78,62 +82,11 @@ Start the server in development mode:
 
 `npm run dev`
 
-**3. Setup the Client**
-
-Open a new terminal window in the root directory of the project and navigate to the client:
-
-`cd client`
-
-Install client dependencies:
-
-`npm install`
-
-Start the client in development mode:
-
-`npm run dev`
-
-Now when the client setup is complete you can open the following link in your web browser: [http://localhost:5173](http://localhost:5173)
+Now when the server setup is complete you can open the following link in your web browser: [http://localhost:4000](http://localhost:4000)
 
 **Note:** These instructions are intended for users operating on the Windows OS.
 
-## Screenshots
-
-- **Guest experience:**
-
-<img src="/client/public/images/home_page.jpg" alt="Home Page" width="700" />
-<img src="/client/public/images/details_page_guest.jpg" alt="Details Page" width="700" />
-
-- **Authorized experience:**
-
-<img src="/client//public/images/home_page_logged_in_1.jpg" alt="Home Page" width="700" />
-<img src="/client//public/images/my_items_page.jpg" alt="My Items Page" width="700" />
-
-- **Authorized owner experience:**
-
-<img src="/client//public/images/details_page_owner.jpg" alt="Details Page" width="700" />
-
-- **Authorized not owner experience:**
-
-    - Before like
-
-    <img src="/client//public/images/details_page_not_owner.jpg" alt="Not Liked Item Page" width="700" />
-
-    - After like
-
-    <img src="/client//public/images/details_page_with_like.jpg" alt="Liked Item Page" width="700" />
-
-- **404 Page**
-
-<img src="/client//public/images/not_found_page.jpg" alt="404 Page" width="700" />
-
 ## API Endpoints
-
-The Base URL for the API is: 
-
-- for development mode: `http://localhost:3500`
-- for production mode: `https://pyrography-art-gallery-api.onrender.com`
-
-The documentation below assumes you are pre-pending the Base URL to the endpoints in order to make requests.
 
 ### Authentication
 
@@ -148,7 +101,7 @@ The documentation below assumes you are pre-pending the Base URL to the endpoint
     - _Response:_
     ```
     {
-        "User Data": "userData"
+        "token": "token"
     }
     ```
     - _Description:_ Authenticate and log in a user
@@ -159,24 +112,25 @@ The documentation below assumes you are pre-pending the Base URL to the endpoint
     {
         "username": "string",
         "email": "string",
-        "password": "string"
+        "password": "string",
+        "rePassword": "string"
     }
     ```
     - _Response:_
     ```
     {
-        "User Data": "userData"
+        "token": "token"
     }
     ```
     - _Description:_ Create a new user
 
-### Items Management
+### Electronics Management
 
-- **POST /data/add-item**
+- **POST /electronics/create**
     - _Request:_
     ```
     {
-        "itemData": "itemData"
+        "electronicData": "electronicData"
     }
     ```
     - _Response:_
@@ -185,58 +139,49 @@ The documentation below assumes you are pre-pending the Base URL to the endpoint
         "New Item": "newItem"
     }
     ```
-    - _Description:_ Create a new item
+    - _Description:_ Create a new electronics part
 
-- **GET /data/:collectionName/:itemId/details**
+- **GET /electronics/:partId/details**
     - _Response:_
     ```
     {
-        "fromCollection": "unique_collection_id",
-        "itemId": "unique_item_id",
-        "name": "string",
-        "imageUrl": "string",
-        "description": "string",
-        "ownerId": "ownerId"
+        "partId": "unique_part_id"
     }
     ```
-    - _Description:_ Get details data of a specific item
+    - _Description:_ Get details data of a specific electronics part
 
-- **PUT /data/:collectionName/:itemId/edit-item**
+- **POST /electronics/:partId/edit**
     - _Request:_
     ```
     {
-        "itemData": "itemData"
+        "partId": "unique_part_id",
+        "electronicData": "electronicData"
     }
     ```
     - _Response:_
     ```
     {
-        "fromCollection": "unique_collection_id",
-        "itemId": "unique_item_id",
-        "name": "string",
-        "imageUrl": "string",
-        "description": "string",
-        "ownerId": "ownerId"
+        "electronicData": "electronicData"
     }
     ```
-    - _Description:_ Update a specific item
+    - _Description:_ Update a specific electronics part
 
-- **DELETE /data/:collectionName/:itemId**
+- **GET /electronis/:partId/delete**
     - _Request:_
     ```
     {
-        "itemId": "unique_item_id",
+        "partId": "unique_part_id"
     }
     ```
-    - _Description:_ Remove an item from collection
+    - _Description:_ Remove an electronics part from collection
 
-### Likes Management
+### Purchase Management
 
-- **POST /data/:collectionName/:itemId/like**
+- **GET /electronics//:partId/purchase**
     - _Request:_
     ```
     {
-        "itemId": "unique_item_id"
+        "partId": "unique_part_id"
     }
     ```
     - _Response:_
@@ -248,7 +193,7 @@ The documentation below assumes you are pre-pending the Base URL to the endpoint
         ...
     ]
     ```
-    - _Description:_ Create a like to a specific item
+    - _Description:_ Create a purchase to a specific electronics part
 
 ## Room for Improvements
 
@@ -256,24 +201,13 @@ The documentation below assumes you are pre-pending the Base URL to the endpoint
 
     - **Improvement 1:** Enhance user experience with additional effects.
 
-    <!-- - **Improvement 2:** 
-
-    - **Improvement 3:**  -->
 - ### Features that can be Added
 
     - **Feature to be added 1:** Good testing system.
 
-    - **Feature to be added 2:** Implement buy functionality.
+    - **Feature to be added 2:** Implement working purchase functionality.
 
-    - **Feature to be added 3:** Introduce a search bar.
-
-    - **Feature to be added 4:** Enable corresponding by email.
-
-## Acknowledgement
-
-- This project was inspired by my sister, Veselina Hendry's, passion for pyrography crafting. With her guidance, I had the opportunity to immerse myself in this beautiful world of art.
-
-- I extend my sincere gratitude to Mr. Ivaylo Papazov for guiding me through the process of creating a React application with Vite. Thanks to his insightful lectures, I successfully developed and presented a basic application, complete with its core functionalities.
+    - **Feature to be added 3:** Enable corresponding by email.
 
 ## Contacts
 
